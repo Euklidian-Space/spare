@@ -28,7 +28,7 @@ services:
         image: hackforla/spare:client
         build:
             context: ./client
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.client
         command: bash -c "npm install; npm rebuild node-sass; npm run start"
         volumes:
             - ./client:/app

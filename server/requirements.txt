@@ -1,3 +1,4 @@
+boto3==1.7.38
 coreapi==2.3.3
 Django==1.11
 django-cors-headers==2.1.0
@@ -6,6 +7,7 @@ django-extensions==1.9.1
 django-filter==1.1.0
 django-model-utils==3.1.1
 django-grappelli==2.10.1
+django-storages==1.6.5
 djangorestframework==3.7.7
 dj-database-url==0.4.2
 flake8==3.3.0
@@ -15,3 +17,4 @@ psycopg2==2.7.1
 pytest==3.2.3
 pytest-django==3.1.2
 uWSGI==2.0.15
+whitenoise==3.3.1
