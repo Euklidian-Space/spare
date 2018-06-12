@@ -9,4 +9,9 @@ COPY requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip install -r requirements.txt
 
+RUN useradd -m spare_user
+USER spare_user
+
 COPY . /app
+
+CMD uwsgi uwsgi.ini
