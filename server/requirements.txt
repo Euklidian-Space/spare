@@ -1,5 +1,6 @@
 boto3==1.7.38
 coreapi==2.3.3
+Collectfast==0.6.2
 Django==1.11
 django-cors-headers==2.1.0
 django-debug-toolbar==1.8
