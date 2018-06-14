@@ -70,10 +70,9 @@ class RequestForm extends Component {
     data.item = this.inputs.item.value;
     console.log(data);
 
-    // localhost shouldn't be hard-coded. how do we 
-    // handle this in development if the API endpoint
-    // is on a different port?
-    axios.post('http://localhost:8000/api/requests/', data)
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api' : process.env.REACT_APP_API_HOST_URL
+
+    axios.post(`${ apiUrl }/requests/`, data)
       .then((res) => {
         this.setState((oldState) => ({alert: 'success', message: 'Request received.'}));
         console.log(res);

@@ -41,7 +41,9 @@ export default class Donate extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/requests/')
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api' : process.env.REACT_APP_API_HOST_URL
+
+    axios.get(`${ apiUrl }/requests/`)
       .then((res) => {
         this.setState((oldState) => ({
           requests: res.data

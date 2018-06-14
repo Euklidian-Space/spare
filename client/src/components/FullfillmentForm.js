@@ -68,9 +68,11 @@ class FullfillmentForm extends Component {
     data.item = this.inputs.item.value;
     console.log(data);
 
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api' : process.env.REACT_APP_API_HOST_URL
+
     // handle this in development if the API endpoint
     // is on a different port?
-    axios.post('http://localhost:8000/api/fullfillments/', data)
+    axios.post(`${ apiUrl }/fullfillments/`, data)
       .then((res) => {
         this.setState((oldState) => ({alert: 'success', message: 'Request fullfilled.'}));
         console.log(res);
