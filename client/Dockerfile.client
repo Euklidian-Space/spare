@@ -4,5 +4,8 @@ FROM node:6
 # Create app directory and install packages
 WORKDIR /app
 
+# Add node_modules bin directory to path
+ENV PATH /app/node_modules/.bin:$PATH
+
 # Use live app files
 COPY . /app
