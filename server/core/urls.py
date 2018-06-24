@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
 
     # TODO: Only serve client in production (catch-all)
-    url(r'^(?!api/).*/?$', TemplateView.as_view(template_name='client/index.html'))
+    url(r'^(?!api/).*/?$', TemplateView.as_view(template_name='index.html'))
 ]
 urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
 urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

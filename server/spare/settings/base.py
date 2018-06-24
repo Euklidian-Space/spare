@@ -51,7 +51,9 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'staticfiles')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,10 +105,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/public')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/dist')
-]
 
 
 # Django Custom User model
@@ -137,4 +135,3 @@ if os.environ.get('EMAIL_BACKEND') == 'mailgun':
 # Other settings, etc.
 elif os.environ.get('EMAIL_BACKEND') == 'console':
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-

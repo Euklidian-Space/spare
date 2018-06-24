@@ -2,7 +2,7 @@ from .base import *  # noqa
 
 import dj_database_url
 
-DEBUG = False
+DEBUG = True
 
 # Recommended settings (Heroku takes care of this for us)
 ALLOWED_HOSTS = ['*']
@@ -30,8 +30,14 @@ INSTALLED_APPS = [
     'collectfast',
 ] + INSTALLED_APPS
 
-STATIC_URL = 'https://{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_DIRS = []
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 DEFAULT_FILE_STORAGE = 'core.storage_backends.MediaStorage'
+
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+] + MIDDLEWARE
